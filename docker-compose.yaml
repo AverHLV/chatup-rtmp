@@ -1,0 +1,8 @@
+services:
+  nginx:
+    image: tiangolo/nginx-rtmp:latest-2021-09-17
+    ports:
+      - 8000:8000
+      - 1935:1935
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
