@@ -1,8 +1,15 @@
+version: '3.7'
+
 services:
   nginx:
     image: tiangolo/nginx-rtmp:latest-2021-09-17
     ports:
       - 8000:8000
       - 1935:1935
+    environment:
+      - CH_CHATUP_HOST=${CH_CHATUP_HOST}
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./chatup.template:/etc/nginx/chatup.template
+      - ./entrypoint.sh:/entrypoint.sh
+    entrypoint: ["sh", "/entrypoint.sh"]
+    command: ["nginx", "-g", "daemon off;"]

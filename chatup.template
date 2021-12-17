@@ -7,7 +7,7 @@ rtmp {
         application live {
             live on;
             record off;
-            on_publish <chatup_host>/api/auth/login_rtmp/;
+            on_publish ${CH_CHATUP_HOST}/api/auth/login_rtmp/;
 
             hls on;
             hls_path /tmp/hls/;
