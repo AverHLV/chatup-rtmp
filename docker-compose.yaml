@@ -1,15 +1,18 @@
-version: '3.7'
+version: '3.5'
 
 services:
   nginx:
-    image: tiangolo/nginx-rtmp:latest-2021-09-17
+    build:
+      context: .
     ports:
-      - 8000:8000
-      - 1935:1935
-    environment:
-      - CH_CHATUP_HOST=${CH_CHATUP_HOST}
-    volumes:
-      - ./chatup.template:/etc/nginx/chatup.template
-      - ./entrypoint.sh:/entrypoint.sh
-    entrypoint: ["sh", "/entrypoint.sh"]
-    command: ["nginx", "-g", "daemon off;"]
+      - ${EXPOSE_NGINX_PORT}:8002
+      - ${EXPOSE_NGINX_RTMP_PORT}:1935
+    env_file: ./.env
+    networks:
+      - default
+      - default_external
+
+networks:
+  default_external:
+    external:
+      name: default_external

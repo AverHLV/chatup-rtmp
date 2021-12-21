@@ -2,7 +2,7 @@ events {}
 
 rtmp {
     server {
-        listen 1935;
+        listen ${EXPOSE_NGINX_RTMP_PORT};
 
         application live {
             live on;
@@ -20,7 +20,7 @@ rtmp {
 
 http {
     server {
-        listen 8000;
+        listen ${EXPOSE_NGINX_PORT};
         client_max_body_size 25M;
 
         location /live {

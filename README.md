@@ -1,5 +1,21 @@
 # ChatUP-RTMP
 
+RTMP service for serving streams for ChatUP service.
+
+## Setup
+
+Populate `.env` file, use `.env.example`.
+
+Build images:
+```
+make container@build
+```
+
+Start containers:
+```
+make container@start
+```
+
 ## RTMP clients configuration for streaming
 
 ### OBS Studio
