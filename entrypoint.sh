@@ -1,4 +1,4 @@
 #!/bin/sh
 
-envsubst < /etc/nginx/nginx.template > /etc/nginx/nginx.conf
+envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf
 exec "$@"
