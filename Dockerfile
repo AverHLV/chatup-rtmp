@@ -1,4 +1,4 @@
-FROM tiangolo/nginx-rtmp:latest-2021-09-17
+FROM tiangolo/nginx-rtmp:latest-2023-03-20
 
 RUN apt-get update && apt-get install -y gettext
 COPY nginx.conf.template /etc/nginx/nginx.conf.template
